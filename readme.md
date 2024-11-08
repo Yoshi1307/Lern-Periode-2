@@ -16,14 +16,16 @@ Heute habe ich probiert mit möglichst wenig Hilfe mit Timo einen Numberguesser 
 
 ## 8.11.2024
 
-- [ ] Numberguesser beenden
-- [ ] Neues Projekt beginnen "Quiz Show"
-- [ ] Fragen Aufschreiben für Quiz Show
-- [ ] Auswahl von Schwierigkeitsgraden Einfügen
+- [x] Numberguesser beenden
+- [x] Neues Projekt beginnen "Quiz Show"
+- [x] Fragen Aufschreiben für Quiz Show
+- [x] Auswahl von Schwierigkeitsgraden Einfügen
 
-✍️ Heute habe ich... (50-100 Wörter)
+Heute habe ich den Numberguesser fertig geschrieben, dass wenn jemand eine Zahl über 100 oder unter 1 eingibt, das Eingabefeld nochmal auftaucht. Dann habe ich mit meinem neuen Projekt begonnen und mir Fragen überlegt. Als ich fertig war, begann ich mir Tutorials anzuschauen, um zu schauen, wie ich ein Quiz machen kann. Dann habe ich begonnen, den Code aus dem Kopf zu schreiben, so wie ich es gemacht hätte. Als Letztes habe ich die Fragen zum Schwierigkeitsgrad einfach hinzugefügt. 
 
-☝️ Vergessen Sie nicht, bis einen ersten Code auf github hochzuladen
-
-## ...
+## 15.11.2024
+- [] Fragen zur Schwierigkeit mittel und schwer hinzufügen
+- [] Fragen bei gross/kleinschreibung als richtig gelten lassen
+- [] Code vereinfachen
+- [] Punktesystem einbauen
 
