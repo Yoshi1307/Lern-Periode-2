@@ -24,8 +24,15 @@ Heute habe ich probiert mit möglichst wenig Hilfe mit Timo einen Numberguesser 
 Heute habe ich den Numberguesser fertig geschrieben, dass wenn jemand eine Zahl über 100 oder unter 1 eingibt, das Eingabefeld nochmal auftaucht. Dann habe ich mit meinem neuen Projekt begonnen und mir Fragen überlegt. Als ich fertig war, begann ich mir Tutorials anzuschauen, um zu schauen, wie ich ein Quiz machen kann. Dann habe ich begonnen, den Code aus dem Kopf zu schreiben, so wie ich es gemacht hätte. Als Letztes habe ich die Fragen zum Schwierigkeitsgrad einfach hinzugefügt. 
 
 ## 15.11.2024
-- [] Fragen zur Schwierigkeit mittel und schwer hinzufügen
-- [] Fragen bei gross/kleinschreibung als richtig gelten lassen
+- [X] Fragen zur Schwierigkeit mittel und schwer hinzufügen
+- [X] Fragen bei gross/kleinschreibung als richtig gelten lassen
 - [] Code vereinfachen
-- [] Punktesystem einbauen
+- [X] Punktesystem einbauen
+      
+Heute habe ich am Quiz weitergearbeitet und die fehlenden Fragen zum Schwierigkeitsgrad Mittel und Schwer hinzugefügt. Ausserdem habe ich ermöglicht, dass die Gross- und Kleinschreibung egal ist, durch den Befehl "Console.ReadLine().ToLower();". Im gleichen Teil habe ich noch alternative Antworten wie anstelle von Washington George Washington zählen lassen. Am Ende habe ich noch ein kleines Punktesystem eingebaut, mit einem Glückwunsch bei voller Punktzahl. Für das Vereinfachen des Codes hat es nicht gereicht, das werde ich aber nächstes Mal erledigen.
 
+## 22.11.2024
+- [ ] Fragen in Arrays Speichern
+- [ ] Antworten in Arrays speichern
+- [ ] "Noch ein Spiel" Option einbauen
+- [ ] Weitere Fragen einbauen
