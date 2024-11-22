@@ -32,7 +32,9 @@ Heute habe ich den Numberguesser fertig geschrieben, dass wenn jemand eine Zahl 
 Heute habe ich am Quiz weitergearbeitet und die fehlenden Fragen zum Schwierigkeitsgrad Mittel und Schwer hinzugefügt. Ausserdem habe ich ermöglicht, dass die Gross- und Kleinschreibung egal ist, durch den Befehl "Console.ReadLine().ToLower();". Im gleichen Teil habe ich noch alternative Antworten wie anstelle von Washington George Washington zählen lassen. Am Ende habe ich noch ein kleines Punktesystem eingebaut, mit einem Glückwunsch bei voller Punktzahl. Für das Vereinfachen des Codes hat es nicht gereicht, das werde ich aber nächstes Mal erledigen.
 
 ## 22.11.2024
-- [ ] Fragen in Arrays Speichern
-- [ ] Antworten in Arrays speichern
-- [ ] "Noch ein Spiel" Option einbauen
+- [x] Fragen in Arrays Speichern
+- [x] Antworten in Arrays speichern
+- [x] "Noch ein Spiel" Option einbauen
 - [ ] Weitere Fragen einbauen
+
+Heute habe ich den Code vereinfacht und die ganzen Fragen in Arrays verpackt. Dies habe ich für alle Schwierigkeitsgrade gemacht. Danach habe ich das ganze auch für die Antworten gemacht. Danach habe ich den Code so angepasst das die Fragen direkt aus dem Array rausgezogen werden. Als nächstes habe ich das Punktesystem so aktualisiert, das es wieder funktioniert. Zum Abschluss habe ich mit einer bool while Schleife eine "Nochmal spielen" Option eingebaut. Das ganze hat länger als erwartet gedauert weil ich das mit den Arrays nicht hingebracht habe.
