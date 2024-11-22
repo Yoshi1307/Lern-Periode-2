@@ -6,177 +6,103 @@ namespace Quiz
     {
         static void Main(string[] args)
         {
-            int punkte = 0;
+            bool weiterspielen = true;
 
-            Console.WriteLine("Wählen Sie den Schwierigkeitsgrad: Einfach, Mittel, Schwer");
-            string schwierigkeitsgrad = Console.ReadLine().ToLower();
-
-            if (schwierigkeitsgrad == "einfach")
+            while (weiterspielen)
             {
-                Console.WriteLine("Wie viele Kontinente gibt es auf der Erde?");
-                string antwort = Console.ReadLine().ToLower();
-                if (antwort == "7" || antwort == "sieben")
-                {
-                    Console.WriteLine("Richtig!");
-                    punkte++;
-                }
-                else Console.WriteLine("Falsch!");
-                Console.WriteLine("");
+                int punkte = 0;
 
-                Console.WriteLine("Was ist die Hauptstadt der Schweiz?");
-                string antwort2 = Console.ReadLine().ToLower();
-                if (antwort2 == "bern")
-                {
-                    Console.WriteLine("Richtig!");
-                    punkte++;
-                }
-                else Console.WriteLine("Falsch!");
-                Console.WriteLine("");
+                // Fragen und Antworten
+                string[] FragenEinfach = {
+                    "Wie viele Kontinente gibt es auf der Erde?",
+                    "Was ist die Hauptstadt der Schweiz?",
+                    "Welches Land hat die meisten Einwohner?",
+                    "In welchem Jahr war die 1. bemannte Mondlandung?",
+                    "Wie viele Tage hat ein Jahr?"
+                };
 
-                Console.WriteLine("Welches Land hat die meisten Einwohner?");
-                string antwort3 = Console.ReadLine().ToLower();
-                if (antwort3 == "indien")
-                {
-                    Console.WriteLine("Richtig!");
-                    punkte++;
-                }
-                else Console.WriteLine("Falsch!");
-                Console.WriteLine("");
+                string[] AntwortenEinfach = { "7", "bern", "indien", "1969", "365" };
 
-                Console.WriteLine("In welchem Jahr war die 1. bemannte Mondlandung?");
-                string antwort4 = Console.ReadLine();
-                if (antwort4 == "1969")
-                {
-                    Console.WriteLine("Richtig!");
-                    punkte++;
-                }
-                else Console.WriteLine("Falsch!");
-                Console.WriteLine("");
+                string[] FragenMittel = {
+                    "Wie viele Planeten gibt es in unserem Sonnensystem?",
+                    "In welchem Jahr begann der 1. Weltkrieg?",
+                    "Was ist das chemische Zeichen für Gold?",
+                    "Welches ist der größte Planet in unserem Sonnensystem?",
+                    "Was ist die Hauptstadt von Griechenland?"
+                };
 
-                Console.WriteLine("Wie viele Tage hat ein Jahr?");
-                string antwort5 = Console.ReadLine();
-                if (antwort5 == "365")
-                {
-                    Console.WriteLine("Richtig!");
-                    punkte++;
-                }
-                else Console.WriteLine("Falsch!");
-                Console.WriteLine("");
-            }
-            else if (schwierigkeitsgrad == "mittel")
-            {
-                Console.WriteLine("Wie viele Planeten gibt es in unserem Sonnensystem?");
-                string antwort = Console.ReadLine().ToLower();
-                if (antwort == "8" || antwort == "acht")
-                {
-                    Console.WriteLine("Richtig!");
-                    punkte++;
-                }
-                else Console.WriteLine("Falsch!");
-                Console.WriteLine("");
+                string[] AntwortenMittel = { "8", "1914", "au", "jupiter", "athen" };
 
-                Console.WriteLine("In welchem Jahr begann der 1. Weltkrieg?");
-                string antwort2 = Console.ReadLine();
-                if (antwort2 == "1914")
-                {
-                    Console.WriteLine("Richtig!");
-                    punkte++;
-                }
-                else Console.WriteLine("Falsch!");
-                Console.WriteLine("");
+                string[] FragenSchwer = {
+                    "Was ist die Hauptstadt von Australien?",
+                    "Wer war der erste Präsident der USA?",
+                    "Welches Land hat als einziges eine Flagge mit mehr als 4 Ecken?",
+                    "Welches ist das kleinste Land der Welt?",
+                    "Wann begann die Französische Revolution?"
+                };
 
-                Console.WriteLine("Was ist das chemische Zeichen für Gold?");
-                string antwort3 = Console.ReadLine().ToLower();
-                if (antwort3 == "au")
-                {
-                    Console.WriteLine("Richtig!");
-                    punkte++;
-                }
-                else Console.WriteLine("Falsch!");
-                Console.WriteLine("");
+                string[] AntwortenSchwer = { "canberra", "washington", "nepal", "vatikanstadt", "1789" };
 
-                Console.WriteLine("Welches ist der größte Planet in unserem Sonnensystem?");
-                string antwort4 = Console.ReadLine().ToLower();
-                if (antwort4 == "jupiter")
-                {
-                    Console.WriteLine("Richtig!");
-                    punkte++;
-                }
-                else Console.WriteLine("Falsch!");
-                Console.WriteLine("");
+                // Schwierigkeitsgrad auswählen
+                Console.WriteLine("Wählen Sie den Schwierigkeitsgrad: Einfach, Mittel, Schwer");
+                string schwierigkeitsgrad = Console.ReadLine().ToLower();
 
-                Console.WriteLine("Was ist die Hauptstadt von Griechenland?");
-                string antwort5 = Console.ReadLine().ToLower();
-                if (antwort5 == "athen")
-                {
-                    Console.WriteLine("Richtig!");
-                    punkte++;
-                }
-                else Console.WriteLine("Falsch!");
-                Console.WriteLine("");
-            }
-            else if (schwierigkeitsgrad == "schwer")
-            {
-                Console.WriteLine("Was ist die Hauptstadt von Australien?");
-                string antwort = Console.ReadLine().ToLower();
-                if (antwort == "canberra")
-                {
-                    Console.WriteLine("Richtig!");
-                    punkte++;
-                }
-                else Console.WriteLine("Falsch!");
-                Console.WriteLine("");
+                string[] ausgewählteFragen = null;
+                string[] ausgewählteAntworten = null;
 
-                Console.WriteLine("Wer war der erste Präsident der USA?");
-                string antwort2 = Console.ReadLine().ToLower();
-                if (antwort2 == "washington" || antwort2 == "george washington")
+                if (schwierigkeitsgrad == "einfach")
                 {
-                    Console.WriteLine("Richtig!");
-                    punkte++;
+                    ausgewählteFragen = FragenEinfach;
+                    ausgewählteAntworten = AntwortenEinfach;
                 }
-                else Console.WriteLine("Falsch!");
-                Console.WriteLine("");
+                else if (schwierigkeitsgrad == "mittel")
+                {
+                    ausgewählteFragen = FragenMittel;
+                    ausgewählteAntworten = AntwortenMittel;
+                }
+                else if (schwierigkeitsgrad == "schwer")
+                {
+                    ausgewählteFragen = FragenSchwer;
+                    ausgewählteAntworten = AntwortenSchwer;
+                }
+                else
+                {
+                    Console.WriteLine("Ungültiger Schwierigkeitsgrad!");
+                    continue;
+                }
 
-                Console.WriteLine("Welches Land hat als einziges eine Flagge mit mehr als 4 Ecken?");
-                string antwort3 = Console.ReadLine().ToLower();
-                if (antwort3 == "nepal")
+                // Abfrage Quiz
+                for (int i = 0; i < ausgewählteFragen.Length; i++)
                 {
-                    Console.WriteLine("Richtig!");
-                    punkte++;
-                }
-                else Console.WriteLine("Falsch!");
-                Console.WriteLine("");
+                    Console.WriteLine(ausgewählteFragen[i]);
+                    string antwort = Console.ReadLine().ToLower();
 
-                Console.WriteLine("Welches ist das kleinste Land der Welt?");
-                string antwort4 = Console.ReadLine().ToLower();
-                if (antwort4 == "vatikanstadt" || antwort4 == "der vatikan" || antwort4 == "vatikan")
-                {
-                    Console.WriteLine("Richtig!");
-                    punkte++;
+                    if (antwort == ausgewählteAntworten[i])
+                    {
+                        Console.WriteLine("Richtig!");
+                        punkte++;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Falsch!");
+                    }
+                    Console.WriteLine();
                 }
-                else Console.WriteLine("Falsch!");
-                Console.WriteLine("");
 
-                Console.WriteLine("Wann begann die Französische Revolution?");
-                string antwort5 = Console.ReadLine();
-                if (antwort5 == "1789")
+                // Ergebnis ausgeben
+                Console.WriteLine($"Sie haben {punkte} von {ausgewählteFragen.Length} Punkten erreicht.");
+                if (punkte == ausgewählteFragen.Length)
                 {
-                    Console.WriteLine("Richtig!");
-                    punkte++;
+                    Console.WriteLine("Glückwunsch zur vollen Punktzahl!");
                 }
-                else Console.WriteLine("Falsch!");
-                Console.WriteLine("");
-            }
-            else
-            {
-                Console.WriteLine("Ungültiger Schwierigkeitsgrad!");
+
+                // Noch ein Spiel?
+                Console.WriteLine("Möchten Sie noch einmal spielen? (ja/nein)");
+                string antwortWeiterspielen = Console.ReadLine().ToLower();
+                weiterspielen = antwortWeiterspielen == "ja";
             }
 
-            Console.WriteLine($"Sie haben {punkte} von 5 Punkten erreicht.");
-            if (punkte == 5)
-            {
-                Console.WriteLine("Glückwunsch zur vollen Punktzahl!");
-            }
+            Console.WriteLine("Vielen Dank fürs Spielen!");
         }
-    }   
+    }
 }
