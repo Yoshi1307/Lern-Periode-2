@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace Quiz
 {
@@ -7,6 +8,7 @@ namespace Quiz
         static void Main(string[] args)
         {
             bool weiterspielen = true;
+            int highscore = 0; // Highscore-Variable
 
             while (weiterspielen)
             {
@@ -70,6 +72,7 @@ namespace Quiz
                     Console.WriteLine("Ungültiger Schwierigkeitsgrad!");
                     continue;
                 }
+                Console.Clear();
 
                 // Abfrage Quiz
                 for (int i = 0; i < ausgewählteFragen.Length; i++)
@@ -79,30 +82,68 @@ namespace Quiz
 
                     if (antwort == ausgewählteAntworten[i])
                     {
+                        Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("Richtig!");
+                        Console.ResetColor();
                         punkte++;
                     }
                     else
                     {
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Falsch!");
+                        Console.ResetColor();
                     }
-                    Console.WriteLine();
+
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine($"Aktuelle Punkte: {punkte}");
+                    Console.ResetColor();
+
+                    Thread.Sleep(2000);
+                    Console.Clear();
                 }
 
                 // Ergebnis ausgeben
                 Console.WriteLine($"Sie haben {punkte} von {ausgewählteFragen.Length} Punkten erreicht.");
-                if (punkte == ausgewählteFragen.Length)
+
+                // Highscore aktualisieren
+                if (punkte > highscore)
                 {
-                    Console.WriteLine("Glückwunsch zur vollen Punktzahl!");
+                    highscore = punkte;
+                    Console.WriteLine("Neuer Highscore erreicht! 🎉");
                 }
 
-                // Noch ein Spiel?
-                Console.WriteLine("Möchten Sie noch einmal spielen? (ja/nein)");
-                string antwortWeiterspielen = Console.ReadLine().ToLower();
-                weiterspielen = antwortWeiterspielen == "ja";
-            }
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"Ihre Punkte: {punkte}");
+                Console.ResetColor();
 
-            Console.WriteLine("Vielen Dank fürs Spielen!");
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.WriteLine($"Highscore: {highscore} Punkte");
+                Console.ResetColor();
+
+                // Noch ein Spiel?
+                while (true)
+                {
+                    Console.WriteLine("Möchten Sie noch einmal spielen? (ja/nein)");
+                    string antwortWeiterspielen = Console.ReadLine().ToLower();
+
+                    if (antwortWeiterspielen == "ja")
+                    {
+                        weiterspielen = true;
+                        Console.Clear();
+                        break;
+                    }
+                    else if (antwortWeiterspielen == "nein")
+                    {
+                        weiterspielen = false;
+                        Console.WriteLine("Vielen Dank fürs Spielen!");
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Ungültige Eingabe. Bitte geben Sie 'ja' oder 'nein' ein.");
+                    }
+                }
+            }
         }
     }
 }
