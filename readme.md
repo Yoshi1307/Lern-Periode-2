@@ -40,6 +40,12 @@ Heute habe ich am Quiz weitergearbeitet und die fehlenden Fragen zum Schwierigke
 Heute habe ich den Code vereinfacht und die ganzen Fragen in Arrays verpackt. Dies habe ich für alle Schwierigkeitsgrade gemacht. Danach habe ich das ganze auch für die Antworten gemacht. Danach habe ich den Code so angepasst das die Fragen direkt aus dem Array rausgezogen werden. Als nächstes habe ich das Punktesystem so aktualisiert, das es wieder funktioniert. Zum Abschluss habe ich mit einer bool while Schleife eine "Nochmal spielen" Option eingebaut. Das ganze hat länger als erwartet gedauert weil ich das mit den Arrays nicht hingebracht habe.
 
 ## 27.11.2024
-- [ ] Desing anpassen das es übersichtlicher ist
-- [ ] Highscore System hinzufügen
-- [ ] Punkte während den Runden anzeigen
+- [X] Desing anpassen das es übersichtlicher ist
+- [X] Highscore System hinzufügen
+- [X] Punkte während den Runden anzeigen
+Heute habe ich damit begonnen, den Code zu vereinfachen. Zuerst habe ich den "Noch einmal Spielen" Bereich überarbeitet, sodass es richtig funktioniert und die Abfrage bei unklaren antworten wiederholt wird. Als Nächstes habe ich ein Highscore-System hinzugefügt, was einfacher war als gedacht. Danach fügte ich die Punkteanzeige während der Runden ein. Zum Schluss habe ich das ganze nochmal überarbeitet, Farbe hinzugefügt und es so gemacht, dass die Konsolenausgabe besser aussieht.
+
+## 6.12.2024
+- [ ] Zufallsmodus für Fragen einführen
+- [ ] Timer für die Eingabe von Fragen hinzufügen
+- [ ] Kategorien einfügen
