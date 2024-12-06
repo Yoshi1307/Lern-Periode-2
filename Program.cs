@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace Quiz
 {
@@ -78,9 +79,42 @@ namespace Quiz
                 for (int i = 0; i < ausgewählteFragen.Length; i++)
                 {
                     Console.WriteLine(ausgewählteFragen[i]);
-                    string antwort = Console.ReadLine().ToLower();
 
-                    if (antwort == ausgewählteAntworten[i])
+                    string benutzerAntwort = null;
+                    bool zeitAbgelaufen = false;
+
+                    // Timer starten und Countdown anzeigen
+                    Task timerTask = Task.Run(() =>
+                    {
+                        for (int sekunden = 15; sekunden > 0; sekunden--)
+                        {
+                            Console.Write($"Zeit verbleibend: {sekunden}Sekunden ");
+                            Thread.Sleep(1000);
+                        }
+                        Console.WriteLine();
+                        Thread.Sleep(15000);
+                        if (benutzerAntwort == null) // Prüfen ob der Benutzer geantwortet hat
+                        {
+                            Console.WriteLine("\nZeit abgelaufen!");
+                            zeitAbgelaufen = true;
+                        }
+                    });
+
+                    // Benutzerantwort einlesen
+                    Task antwortTask = Task.Run(() =>
+                    {
+                        benutzerAntwort = Console.ReadLine()?.ToLower();
+                    });
+
+                    Task.WaitAny(timerTask, antwortTask);
+
+                    if (zeitAbgelaufen)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Falsch!");
+                        Console.ResetColor();
+                    }
+                    else if (benutzerAntwort == ausgewählteAntworten[i])
                     {
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("Richtig!");
@@ -102,14 +136,14 @@ namespace Quiz
                     Console.Clear();
                 }
 
-                // Ergebnis ausgeben
+                // Ergebnis
                 Console.WriteLine($"Sie haben {punkte} von {ausgewählteFragen.Length} Punkten erreicht.");
 
-                // Highscore aktualisieren
+                // Neuer Highscore
                 if (punkte > highscore)
                 {
                     highscore = punkte;
-                    Console.WriteLine("Neuer Highscore erreicht! 🎉");
+                    Console.WriteLine("Neuer Highscore erreicht!");
                 }
 
                 Console.ForegroundColor = ConsoleColor.Green;
