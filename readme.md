@@ -43,9 +43,18 @@ Heute habe ich den Code vereinfacht und die ganzen Fragen in Arrays verpackt. Di
 - [X] Desing anpassen das es übersichtlicher ist
 - [X] Highscore System hinzufügen
 - [X] Punkte während den Runden anzeigen
+
 Heute habe ich damit begonnen, den Code zu vereinfachen. Zuerst habe ich den "Noch einmal Spielen" Bereich überarbeitet, sodass es richtig funktioniert und die Abfrage bei unklaren antworten wiederholt wird. Als Nächstes habe ich ein Highscore-System hinzugefügt, was einfacher war als gedacht. Danach fügte ich die Punkteanzeige während der Runden ein. Zum Schluss habe ich das ganze nochmal überarbeitet, Farbe hinzugefügt und es so gemacht, dass die Konsolenausgabe besser aussieht.
 
 ## 6.12.2024
 - [ ] Zufallsmodus für Fragen einführen
-- [ ] Timer für die Eingabe von Fragen hinzufügen
+- [x] Timer für die Eingabe von Fragen hinzufügen
 - [ ] Kategorien einfügen
+
+Heute habe ich gemeinsam mit Raphael probiert den adventofcode zu machen. Leider hat das ganze nicht funktioniert, da wir die aufgaben nicht verstanden haben. Also hatten wir keinen Ansatz zum starten. Also habe ich mich nach einiger Zeit dazu entschieden den Kaldender aufzugeben und mit meinen Arbeitspaketen zu starten. Ich entschied mich für den Timer und habe mir Tutorials angeschaut. Zuerst hat es funktioniert, aber nachdem ich ihn Visualisieren wollte ging der Ganze Timer nicht mehr. Heute war leider nicht sehr Produktiv.
+
+## 13.12.2024
+- [ ] Timer zum laufen bringen
+- [ ] Zufallsmodus für Fragen einführen
+- [ ] Kategorien einfügen
+
