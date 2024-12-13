@@ -54,7 +54,13 @@ Heute habe ich damit begonnen, den Code zu vereinfachen. Zuerst habe ich den "No
 Heute habe ich gemeinsam mit Raphael probiert den adventofcode zu machen. Leider hat das ganze nicht funktioniert, da wir die aufgaben nicht verstanden haben. Also hatten wir keinen Ansatz zum starten. Also habe ich mich nach einiger Zeit dazu entschieden den Kaldender aufzugeben und mit meinen Arbeitspaketen zu starten. Ich entschied mich für den Timer und habe mir Tutorials angeschaut. Zuerst hat es funktioniert, aber nachdem ich ihn Visualisieren wollte ging der Ganze Timer nicht mehr. Heute war leider nicht sehr Produktiv.
 
 ## 13.12.2024
-- [ ] Timer zum laufen bringen
+- [x] Timer zum laufen bringen
 - [ ] Zufallsmodus für Fragen einführen
-- [ ] Kategorien einfügen
+- [x] Kategorien einfügen
+
+Heute habe ich mir neue Kategorien und Fragen dazu ausgedacht. Dies hat sehr lange gedauert, da es 60 Fragen waren. Danach habe ich die Fragen in den Code eingabaut und geschaut das es funktioniert. Dies hat ein bisschen gedauert, danach aber funktioniert. Als nächstes habe ich den Timer repariert das er nur noch im Hintergrund zählt. Kurz vor Ende ist mein Visual Studio zugegangen und ich musste mir den Code aus zwischenständen zusammenflicken. Jetzt funktioniert wieder alles.
+
+## 20.12.2024
+- [ ] Zufallsmodus für Fragen einführen
+- [ ] Nächstes Projekt überlegen
 
