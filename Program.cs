@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace Quiz
 {
@@ -9,14 +7,13 @@ namespace Quiz
         static void Main(string[] args)
         {
             bool weiterspielen = true;
-            int highscore = 0; // Highscore-Variable
+            int highscore = 0; 
 
             while (weiterspielen)
             {
                 int punkte = 0;
 
-                // Fragen und Antworten
-                string[] FragenEinfach = {
+                string[] FragenEinfachAllgemein = {
                     "Wie viele Kontinente gibt es auf der Erde?",
                     "Was ist die Hauptstadt der Schweiz?",
                     "Welches Land hat die meisten Einwohner?",
@@ -24,9 +21,9 @@ namespace Quiz
                     "Wie viele Tage hat ein Jahr?"
                 };
 
-                string[] AntwortenEinfach = { "7", "bern", "indien", "1969", "365" };
+                string[] AntwortenEinfachAllgemein = { "7", "bern", "china", "1969", "365" };
 
-                string[] FragenMittel = {
+                string[] FragenMittelAllgemein = {
                     "Wie viele Planeten gibt es in unserem Sonnensystem?",
                     "In welchem Jahr begann der 1. Weltkrieg?",
                     "Was ist das chemische Zeichen für Gold?",
@@ -34,9 +31,9 @@ namespace Quiz
                     "Was ist die Hauptstadt von Griechenland?"
                 };
 
-                string[] AntwortenMittel = { "8", "1914", "au", "jupiter", "athen" };
+                string[] AntwortenMittelAllgemein = { "8", "1914", "au", "jupiter", "athen" };
 
-                string[] FragenSchwer = {
+                string[] FragenSchwerAllgemein = {
                     "Was ist die Hauptstadt von Australien?",
                     "Wer war der erste Präsident der USA?",
                     "Welches Land hat als einziges eine Flagge mit mehr als 4 Ecken?",
@@ -44,36 +41,153 @@ namespace Quiz
                     "Wann begann die Französische Revolution?"
                 };
 
-                string[] AntwortenSchwer = { "canberra", "washington", "nepal", "vatikanstadt", "1789" };
+                string[] AntwortenSchwerAllgemein = { "canberra", "washington", "nepal", "vatikanstadt", "1789" };
 
-                // Schwierigkeitsgrad auswählen
+                string[] FragenEinfachSport = {
+                    "Wer gewann in der Saison 2023/2024 die Champions League?",
+                    "Wie heisst der berühmte Schweizer Tennis Spieler?",
+                    "Wie viele Ringe sind im Logo der Olympischen Spiele abgebildet?",
+                    "In welcher Sportart tritt man beim Grand Slam in Wimbledon an?",
+                    "Wie viele Spieler hat eine Fussballmannschaft auf dem Feld?"
+                };
+
+                string[] AntwortenEinfachSport = { "real madrid", "roger federer", "5", "tennis", "11" };
+
+                string[] FragenMittelSport = {
+                    "Wie heisst die Sportart, die mit einem Besen auf Eis gespielt wird?",
+                    "Wie viele Spielabschnitte hat ein Eishockey Spiel?",
+                    "In welcher Sportart gibt es die Begriffe „Strike“ und „Spare“?",
+                    "In welcher Stadt fanden die ersten alten Olympischen Spiele statt?",
+                    "In welcher Stadt fanden die Olympischen Sommerspiele 2016 statt? (Ausgeschrieben)"
+                };
+
+                string[] AntwortenMittelSport = { "curling", "3", "bowling", "olympia", "rio de janeiro" };
+
+                string[] FragenSchwerSport = {
+                    "In welchem Jahr fand die erste Fussball-Frauen-WM statt?",
+                    "Wie heisst der aktive Schnellste Mensch der Welt?",
+                    "Wie viele Spieler stehen bei einem Rugby-Team auf dem Spielfeld?",
+                    "Welches Land hat die meisten Goldmedaillen in der Geschichte der Olympischen Spiele gewonnen?",
+                    "Wer gewann die erste Fußball-Weltmeisterschaft im Jahr 1930?"
+                };
+
+                string[] AntwortenSchwerSport = { "1991", "noah lyles", "15", "usa", "uruguay" };
+
+                string[] FragenEinfachGeografie = {
+                    "Wie heisst das kleinste Land der Welt?",
+                    "Welches ist das größte Land der Welt?",
+                    "Wie heißt der längste Fluss der Welt?",
+                    "Welches Land hat die Form eines Stiefels?",
+                    "In welchem Land liegt der Mount Everest?"
+                };
+
+                string[] AntwortenEinfachGeografie = { "vatikanstadt", "russland", "nil", "italien", "nepal" };
+
+                string[] FragenMittelGeografie = {
+                    "Wie nennt man ein Land, das nicht an ein Meer grenzt?",
+                    "Welches Land hat die längste Küstenlinie der Welt?",
+                    "In welchem Land befindet sich Machu Picchu?",
+                    "Wo liegt die grösste Wüste der Welt?",
+                    "In welchem Land steht der Taj Mahal?"
+                };
+
+                string[] AntwortenMittelGeografie = { "binnenland", "kanada", "peru", "antarktis", "indien" };
+
+                string[] FragenSchwerGeografie = {
+                    "Wie nennt man ein Land, das nur zwischen Binnenländern liegt?",
+                    "Welches bekannte Gebirge liegt in Südamerika?",
+                    "Welches ist die Grösste Insel der Welt?",
+                    "In welchem Land liegt der Grösste Regenwald?",
+                    "Welches Land ist das einzige, das sowohl an die Anden als auch an den Amazonas-Regenwald grenzt?"
+                };
+
+                string[] AntwortenSchwerGeografie = { "doppelter binnenland", "anden", "grönland", "brasilien", "ecuador" };
+
+              
+                Console.WriteLine("Wählen Sie eine Kategorie: Allgemeinwissen, Sport, Geografie");
+                string kategorie = Console.ReadLine().ToLower();
+
+                
                 Console.WriteLine("Wählen Sie den Schwierigkeitsgrad: Einfach, Mittel, Schwer");
                 string schwierigkeitsgrad = Console.ReadLine().ToLower();
 
                 string[] ausgewählteFragen = null;
                 string[] ausgewählteAntworten = null;
 
-                if (schwierigkeitsgrad == "einfach")
+                if (kategorie == "allgemeinwissen")
                 {
-                    ausgewählteFragen = FragenEinfach;
-                    ausgewählteAntworten = AntwortenEinfach;
+                    if (schwierigkeitsgrad == "einfach")
+                    {
+                        ausgewählteFragen = FragenEinfachAllgemein;
+                        ausgewählteAntworten = AntwortenEinfachAllgemein;
+                    }
+                    else if (schwierigkeitsgrad == "mittel")
+                    {
+                        ausgewählteFragen = FragenMittelAllgemein;
+                        ausgewählteAntworten = AntwortenMittelAllgemein;
+                    }
+                    else if (schwierigkeitsgrad == "schwer")
+                    {
+                        ausgewählteFragen = FragenSchwerAllgemein;
+                        ausgewählteAntworten = AntwortenSchwerAllgemein;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Ungültiger Schwierigkeitsgrad!");
+                        continue;
+                    }
                 }
-                else if (schwierigkeitsgrad == "mittel")
+                else if (kategorie == "sport")
                 {
-                    ausgewählteFragen = FragenMittel;
-                    ausgewählteAntworten = AntwortenMittel;
+                    if (schwierigkeitsgrad == "einfach")
+                    {
+                        ausgewählteFragen = FragenEinfachSport;
+                        ausgewählteAntworten = AntwortenEinfachSport;
+                    }
+                    else if (schwierigkeitsgrad == "mittel")
+                    {
+                        ausgewählteFragen = FragenMittelSport;
+                        ausgewählteAntworten = AntwortenMittelSport;
+                    }
+                    else if (schwierigkeitsgrad == "schwer")
+                    {
+                        ausgewählteFragen = FragenSchwerSport;
+                        ausgewählteAntworten = AntwortenSchwerSport;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Ungültiger Schwierigkeitsgrad!");
+                        continue;
+                    }
                 }
-                else if (schwierigkeitsgrad == "schwer")
+                else if (kategorie == "geografie")
                 {
-                    ausgewählteFragen = FragenSchwer;
-                    ausgewählteAntworten = AntwortenSchwer;
+                    if (schwierigkeitsgrad == "einfach")
+                    {
+                        ausgewählteFragen = FragenEinfachGeografie;
+                        ausgewählteAntworten = AntwortenEinfachGeografie;
+                    }
+                    else if (schwierigkeitsgrad == "mittel")
+                    {
+                        ausgewählteFragen = FragenMittelGeografie;
+                        ausgewählteAntworten = AntwortenMittelGeografie;
+                    }
+                    else if (schwierigkeitsgrad == "schwer")
+                    {
+                        ausgewählteFragen = FragenSchwerGeografie;
+                        ausgewählteAntworten = AntwortenSchwerGeografie;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Ungültiger Schwierigkeitsgrad!");
+                        continue;
+                    }
                 }
                 else
                 {
-                    Console.WriteLine("Ungültiger Schwierigkeitsgrad!");
+                    Console.WriteLine("Ungültige Kategorie!");
                     continue;
                 }
-                Console.Clear();
 
                 // Abfrage Quiz
                 for (int i = 0; i < ausgewählteFragen.Length; i++)
@@ -83,30 +197,25 @@ namespace Quiz
                     string benutzerAntwort = null;
                     bool zeitAbgelaufen = false;
 
-                    // Timer starten und Countdown anzeigen
-                    Task timerTask = Task.Run(() =>
-                    {
-                        for (int sekunden = 15; sekunden > 0; sekunden--)
-                        {
-                            Console.Write($"Zeit verbleibend: {sekunden}Sekunden ");
-                            Thread.Sleep(1000);
-                        }
-                        Console.WriteLine();
-                        Thread.Sleep(15000);
-                        if (benutzerAntwort == null) // Prüfen ob der Benutzer geantwortet hat
-                        {
-                            Console.WriteLine("\nZeit abgelaufen!");
-                            zeitAbgelaufen = true;
-                        }
-                    });
-
-                    // Benutzerantwort einlesen
+                    // Timer starten
+                    DateTime startTime = DateTime.Now;
                     Task antwortTask = Task.Run(() =>
                     {
                         benutzerAntwort = Console.ReadLine()?.ToLower();
                     });
 
-                    Task.WaitAny(timerTask, antwortTask);
+                    // Warten, bis entweder der Timer abgelaufen ist oder der Benutzer antwortet
+                    while (!antwortTask.IsCompleted && (DateTime.Now - startTime).TotalSeconds < 15)
+                    {
+                        // Warten bis entweder die Antwort eingegeben wurde oder die Zeit abgelaufen ist
+                    }
+
+                    // Prüfen, ob die Zeit abgelaufen ist
+                    if ((DateTime.Now - startTime).TotalSeconds >= 15)
+                    {
+                        zeitAbgelaufen = true;
+                        Console.WriteLine("\nZeit abgelaufen!");
+                    }
 
                     if (zeitAbgelaufen)
                     {
@@ -133,49 +242,28 @@ namespace Quiz
                     Console.ResetColor();
 
                     Thread.Sleep(2000);
+                    _ = Console.ReadLine();
+                    _ = Console.ReadLine();
+                    _ = Console.ReadLine();
+                    _ = Console.ReadLine();
+                    _ = Console.ReadLine();
                     Console.Clear();
                 }
 
-                // Ergebnis
-                Console.WriteLine($"Sie haben {punkte} von {ausgewählteFragen.Length} Punkten erreicht.");
-
-                // Neuer Highscore
+                
+                Console.WriteLine("Du hast " + punkte + " Punkte erreicht!");
                 if (punkte > highscore)
                 {
                     highscore = punkte;
-                    Console.WriteLine("Neuer Highscore erreicht!");
+                    Console.WriteLine("Neuer Highscore: " + highscore);
                 }
 
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"Ihre Punkte: {punkte}");
-                Console.ResetColor();
-
-                Console.ForegroundColor = ConsoleColor.Magenta;
-                Console.WriteLine($"Highscore: {highscore} Punkte");
-                Console.ResetColor();
-
-                // Noch ein Spiel?
-                while (true)
+                Console.WriteLine("Möchten Sie noch eine Runde spielen? (ja/nein)");
+                string antwortWeiterspielen = Console.ReadLine().ToLower();
+                if (antwortWeiterspielen != "ja")
                 {
-                    Console.WriteLine("Möchten Sie noch einmal spielen? (ja/nein)");
-                    string antwortWeiterspielen = Console.ReadLine().ToLower();
-
-                    if (antwortWeiterspielen == "ja")
-                    {
-                        weiterspielen = true;
-                        Console.Clear();
-                        break;
-                    }
-                    else if (antwortWeiterspielen == "nein")
-                    {
-                        weiterspielen = false;
-                        Console.WriteLine("Vielen Dank fürs Spielen!");
-                        break;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Ungültige Eingabe. Bitte geben Sie 'ja' oder 'nein' ein.");
-                    }
+                    weiterspielen = false;
+                    Console.WriteLine("Danke fürs Spielen!");
                 }
             }
         }
