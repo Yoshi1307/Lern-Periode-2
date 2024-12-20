@@ -63,6 +63,9 @@ Heute habe ich mir neue Kategorien und Fragen dazu ausgedacht. Dies hat sehr lan
 ## 20.12.2024
 - [x] Zufallsmodus für Fragen einführen
 
+## Reflexion
+Da wir Heute sehr wenig Zeit zum Programmieren hatten konnte ich nicht sehr viel machen. Begonnen habe ich damit, den Timer zu reparieren. Danach habe ich noch einen Zufallsgenerator eingefügt, dass man die Kategorie und den Schwierigkeitsgrad durch Zufall entscheiden lassen kann. Während der LP-2 habe ich gelernt wie ich einen Timer anwenden kann, und wie ich die Konsole leeren kann. Ein Meilenstein war, dass ich es endlich hingekriegt habe den Timer fertig zu stellen. Ein anderer Meilenstein war, dass das ganze Programm läuft ohne (mir bekannte) fehler. Abschliessend kann ich sagen, dass ich in dieser Lernperiode viel gelernt habe und mich schon auf die nächste freue.
+
 ## Fertiges Projekt
 Mein Projekt ist ein Quiz mit den Kategorien Sport, Allgemeinwissen und Geographie. Zuerst kann man das Thema und den Schwierigkeitsgrad wählen. Danach kommen die Fragen und man muss sie beantworten. Für jede richtige Antwort bekommt man einen Punkt, welche am Ende zusammengezählt werden. Nach dem Abschliessen eines Quizes kann man auswählen ob man noch ein Spiel spielen will.  Zum Ende jedes Spieles wird wird der Highscore der AKtuellen Session gezeigt. ![grafik](https://github.com/user-attachments/assets/151b1f35-df36-486d-a1c5-1e7cf1346ada)
 
