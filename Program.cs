@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Quiz
 {
@@ -7,12 +9,14 @@ namespace Quiz
         static void Main(string[] args)
         {
             bool weiterspielen = true;
-            int highscore = 0; 
+            int highscore = 0;
+            Random Zufall = new Random();
 
             while (weiterspielen)
             {
                 int punkte = 0;
-
+                
+                //Fragen und Antworten
                 string[] FragenEinfachAllgemein = {
                     "Wie viele Kontinente gibt es auf der Erde?",
                     "Was ist die Hauptstadt der Schweiz?",
@@ -21,7 +25,7 @@ namespace Quiz
                     "Wie viele Tage hat ein Jahr?"
                 };
 
-                string[] AntwortenEinfachAllgemein = { "7", "bern", "china", "1969", "365" };
+                string[] AntwortenEinfachAllgemein = { "7", "bern", "indien", "1969", "365" };
 
                 string[] FragenMittelAllgemein = {
                     "Wie viele Planeten gibt es in unserem Sonnensystem?",
@@ -56,7 +60,7 @@ namespace Quiz
                 string[] FragenMittelSport = {
                     "Wie heisst die Sportart, die mit einem Besen auf Eis gespielt wird?",
                     "Wie viele Spielabschnitte hat ein Eishockey Spiel?",
-                    "In welcher Sportart gibt es die Begriffe „Strike“ und „Spare“?",
+                    "In welcher Sportart gibt es die Begriffe Strike und Spare?",
                     "In welcher Stadt fanden die ersten alten Olympischen Spiele statt?",
                     "In welcher Stadt fanden die Olympischen Sommerspiele 2016 statt? (Ausgeschrieben)"
                 };
@@ -101,19 +105,31 @@ namespace Quiz
                     "Welches Land ist das einzige, das sowohl an die Anden als auch an den Amazonas-Regenwald grenzt?"
                 };
 
-                string[] AntwortenSchwerGeografie = { "doppelter binnenland", "anden", "grönland", "brasilien", "ecuador" };
+                string[] AntwortenSchwerGeografie = { "doppeltes binnenland", "anden", "grönland", "brasilien", "ecuador" };
+                //Auswahl Kategorie
+                Console.WriteLine("Wählen Sie eine Kategorie: Allgemeinwissen, Sport, Geografie oder zufall");
+                string kategorie = Console.ReadLine()?.ToLower();
 
-              
-                Console.WriteLine("Wählen Sie eine Kategorie: Allgemeinwissen, Sport, Geografie");
-                string kategorie = Console.ReadLine().ToLower();
+                if (kategorie == "zufall")
+                {
+                    string[] kategorien = { "allgemeinwissen", "sport", "geografie" };
+                    kategorie = kategorien[Zufall.Next(kategorien.Length)];
+                }
+                //Auswahl Schwierigkeitsgrad
+                Console.WriteLine("Wählen Sie den Schwierigkeitsgrad: Einfach, Mittel, Schwer oder zufall");
+                string schwierigkeitsgrad = Console.ReadLine()?.ToLower();
 
-                
-                Console.WriteLine("Wählen Sie den Schwierigkeitsgrad: Einfach, Mittel, Schwer");
-                string schwierigkeitsgrad = Console.ReadLine().ToLower();
+                if (schwierigkeitsgrad == "zufall")
+                {
+                    string[] schwierigkeitsgrade = { "einfach", "mittel", "schwer" };
+                    schwierigkeitsgrad = schwierigkeitsgrade[Zufall.Next(schwierigkeitsgrade.Length)];
+                }
 
                 string[] ausgewählteFragen = null;
                 string[] ausgewählteAntworten = null;
 
+
+                //Rauslesen der Fragen und Antworten
                 if (kategorie == "allgemeinwissen")
                 {
                     if (schwierigkeitsgrad == "einfach")
@@ -197,21 +213,12 @@ namespace Quiz
                     string benutzerAntwort = null;
                     bool zeitAbgelaufen = false;
 
-                    // Timer starten
-                    DateTime startTime = DateTime.Now;
                     Task antwortTask = Task.Run(() =>
                     {
                         benutzerAntwort = Console.ReadLine()?.ToLower();
                     });
 
-                    // Warten, bis entweder der Timer abgelaufen ist oder der Benutzer antwortet
-                    while (!antwortTask.IsCompleted && (DateTime.Now - startTime).TotalSeconds < 15)
-                    {
-                        // Warten bis entweder die Antwort eingegeben wurde oder die Zeit abgelaufen ist
-                    }
-
-                    // Prüfen, ob die Zeit abgelaufen ist
-                    if ((DateTime.Now - startTime).TotalSeconds >= 15)
+                    if (!antwortTask.Wait(15000))
                     {
                         zeitAbgelaufen = true;
                         Console.WriteLine("\nZeit abgelaufen!");
@@ -236,28 +243,22 @@ namespace Quiz
                         Console.WriteLine("Falsch!");
                         Console.ResetColor();
                     }
-
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine($"Aktuelle Punkte: {punkte}");
                     Console.ResetColor();
 
                     Thread.Sleep(2000);
-                    _ = Console.ReadLine();
-                    _ = Console.ReadLine();
-                    _ = Console.ReadLine();
-                    _ = Console.ReadLine();
-                    _ = Console.ReadLine();
                     Console.Clear();
                 }
 
-                
+                // Highscore updaten
                 Console.WriteLine("Du hast " + punkte + " Punkte erreicht!");
                 if (punkte > highscore)
                 {
                     highscore = punkte;
                     Console.WriteLine("Neuer Highscore: " + highscore);
                 }
-
+                //Noch ein Spiel?
                 Console.WriteLine("Möchten Sie noch eine Runde spielen? (ja/nein)");
                 string antwortWeiterspielen = Console.ReadLine().ToLower();
                 if (antwortWeiterspielen != "ja")
@@ -269,3 +270,5 @@ namespace Quiz
         }
     }
 }
+
+
