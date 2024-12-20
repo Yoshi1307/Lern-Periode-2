@@ -61,6 +61,9 @@ Heute habe ich gemeinsam mit Raphael probiert den adventofcode zu machen. Leider
 Heute habe ich mir neue Kategorien und Fragen dazu ausgedacht. Dies hat sehr lange gedauert, da es 60 Fragen waren. Danach habe ich die Fragen in den Code eingabaut und geschaut das es funktioniert. Dies hat ein bisschen gedauert, danach aber funktioniert. Als nächstes habe ich den Timer repariert das er nur noch im Hintergrund zählt. Kurz vor Ende ist mein Visual Studio zugegangen und ich musste mir den Code aus zwischenständen zusammenflicken. Jetzt funktioniert wieder alles.
 
 ## 20.12.2024
-- [ ] Zufallsmodus für Fragen einführen
-- [ ] Nächstes Projekt überlegen
+- [x] Zufallsmodus für Fragen einführen
+
+## Fertiges Projekt
+Mein Projekt ist ein Quiz mit den Kategorien Sport, Allgemeinwissen und Geographie. Zuerst kann man das Thema und den Schwierigkeitsgrad wählen. Danach kommen die Fragen und man muss sie beantworten. Für jede richtige Antwort bekommt man einen Punkt, welche am Ende zusammengezählt werden. Nach dem Abschliessen eines Quizes kann man auswählen ob man noch ein Spiel spielen will.  Zum Ende jedes Spieles wird wird der Highscore der AKtuellen Session gezeigt. ![grafik](https://github.com/user-attachments/assets/151b1f35-df36-486d-a1c5-1e7cf1346ada)
+
 
